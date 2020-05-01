@@ -1,0 +1,15 @@
+<h1><?php
+	// get logo either out of the template images folder or data/media folder
+	$logoSize = array();
+	$logo = tpl_getMediaFile(array(':logo.svg', ':logo.png', 'images/logo.png'), false, $logoSize);
+
+	// display logo and wiki title in a link to the home page
+	tpl_link(
+		wl(),
+		'<img src="'.$logo.'" '.$logoSize[3].' alt="" /> <span>'.$conf['title'].'</span>',
+		'accesskey="h" title="[H]"'
+	);
+?></h1>
+<?php $translation = plugin_load('helper','translation');
+	if ($translation) echo $translation->showTranslations();
+?><br>

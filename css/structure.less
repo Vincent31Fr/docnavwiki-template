@@ -6,7 +6,30 @@
 body {
     margin: 0 auto;
 }
+#navbar {
+	position:fixed;
+	width:@ini_sidebar_width;
+	top: 0px;
+	left: 0px;
+	overflow: auto;
+	overflow-x:hidden;
+	scrollbar-width:thin;
+	max-height: 100%;
+	padding: 15px;
+	padding-right: 0px ;
+	bottom:0px;
+	z-index:5 ;
+	background-color: rgb(236, 236, 236); 
+	border-right: 2px solid rgb(208, 208, 208);
+}
 
+#main {
+	position: absolute;
+	top: 0px;
+	left: @ini_sidebar_width;
+	right: 0px;
+	margin:5px;
+}
 #dokuwiki__site {
     margin: 0 auto;
     max-width: @ini_site_width;

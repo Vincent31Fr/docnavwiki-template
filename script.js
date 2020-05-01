@@ -70,10 +70,11 @@ jQuery(function(){
         }
     );
 
-    // increase sidebar length to match content (desktop mode only)
+    /** increase sidebar length to match content (desktop mode only)
     var $sidebar = jQuery('.desktop #dokuwiki__aside');
     if($sidebar.length) {
         var $content = jQuery('#dokuwiki__content div.page');
         $content.css('min-height', $sidebar.height());
     }
+	*/
 });

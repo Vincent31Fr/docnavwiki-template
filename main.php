@@ -12,7 +12,7 @@ if (!defined('DOKU_INC')) die(); /* must be run from within DokuWiki */
 header('X-UA-Compatible: IE=edge,chrome=1');
 
 $hasSidebar = page_findnearest($conf['sidebar']);
-$showSidebar = $hasSidebar && ($ACT=='show');
+$showSidebar = False;
 ?><!DOCTYPE html>
 <html lang="<?php echo $conf['lang'] ?>" dir="<?php echo $lang['direction'] ?>" class="no-js">
 <head>
@@ -26,63 +26,65 @@ $showSidebar = $hasSidebar && ($ACT=='show');
 </head>
 
 <body>
-    <div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
-        echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
+	<div id=navbar > 
+		<!-- ********** ASIDE ********** -->
+		<div id="dokuwiki__aside"><div class="pad aside include group">
+			<h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
+			<div class="content"><div class="group">
+				<?php tpl_flush() ?>
+				<?php tpl_includeFile('sidebarheader.html') ?>
+				<?php tpl_include_page($conf['sidebar'], true, true) ?>
+				<?php tpl_includeFile('sidebarfooter.html') ?>
+			</div></div>
+		</div></div><!-- /aside -->	
+	</div>
 
-        <?php include('tpl_header.php') ?>
 
-        <div class="wrapper group">
+	<div id=main >
+		<div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
+			echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
-            <?php if($showSidebar): ?>
-                <!-- ********** ASIDE ********** -->
-                <div id="dokuwiki__aside"><div class="pad aside include group">
-                    <h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
-                    <div class="content"><div class="group">
-                        <?php tpl_flush() ?>
-                        <?php tpl_includeFile('sidebarheader.html') ?>
-                        <?php tpl_include_page($conf['sidebar'], true, true) ?>
-                        <?php tpl_includeFile('sidebarfooter.html') ?>
-                    </div></div>
-                </div></div><!-- /aside -->
-            <?php endif; ?>
+			<?php include('tpl_header.php') ?>
 
-            <!-- ********** CONTENT ********** -->
-            <div id="dokuwiki__content"><div class="pad group">
-                <?php html_msgarea() ?>
+			<div class="wrapper group">
+				<!-- ********** CONTENT ********** -->
+				<div id="dokuwiki__content"><div class="pad group">
+					<?php html_msgarea() ?>
 
-                <div class="pageId"><span><?php echo hsc($ID) ?></span></div>
+					<div class="pageId"><span><?php echo hsc($ID) ?></span></div>
 
-                <div class="page group">
-                    <?php tpl_flush() ?>
-                    <?php tpl_includeFile('pageheader.html') ?>
-                    <!-- wikipage start -->
-                    <?php tpl_content() ?>
-                    <!-- wikipage stop -->
-                    <?php tpl_includeFile('pagefooter.html') ?>
-                </div>
+					<div class="page group">
+						<?php tpl_flush() ?>
+						<?php tpl_includeFile('pageheader.html') ?>
+						<!-- wikipage start -->
+						<?php tpl_content() ?>
+						<!-- wikipage stop -->
+						<?php tpl_includeFile('pagefooter.html') ?>
+					</div>
 
-                <div class="docInfo"><?php tpl_pageinfo() ?></div>
+					<div class="docInfo"><?php tpl_pageinfo() ?></div>
 
-                <?php tpl_flush() ?>
-            </div></div><!-- /content -->
+					<?php tpl_flush() ?>
+				</div></div><!-- /content -->
 
-            <hr class="a11y" />
+				<hr class="a11y" />
 
-            <!-- PAGE ACTIONS -->
-            <div id="dokuwiki__pagetools">
-                <h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
-                <div class="tools">
-                    <ul>
-                        <?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
-                    </ul>
-                </div>
-            </div>
-        </div><!-- /wrapper -->
+				<!-- PAGE ACTIONS -->
+				<div id="dokuwiki__pagetools">
+					<h3 class="a11y"><?php echo $lang['page_tools']; ?></h3>
+					<div class="tools">
+						<ul>
+							<?php echo (new \dokuwiki\Menu\PageMenu())->getListItems(); ?>
+						</ul>
+					</div>
+				</div>
+			</div><!-- /wrapper -->
 
-        <?php include('tpl_footer.php') ?>
-    </div></div><!-- /site -->
+			<?php include('tpl_footer.php') ?>
+		</div></div><!-- /site -->
 
-    <div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
-    <div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
+		<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
+		<div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
+	</div>
 </body>
 </html>
