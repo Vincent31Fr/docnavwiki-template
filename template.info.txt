@@ -1,7 +1,5 @@
 base     docnavwiki
 author   Vincent voisin
-email    
-date     2020-04-29
+date     2020-05-01
 name     doc nav Template
-desc     DokuWiki's doc navigation
-url      
+desc     DokuWiki's doc navigation      
