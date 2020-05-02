@@ -28,6 +28,7 @@ $showSidebar = False;
 <body>
 	<div id=navbar > 
 		<!-- ********** ASIDE ********** -->
+		<button id=closebtn class="closebtn" onclick="closeNav()">&#9776;</button>
 		<div id="dokuwiki__aside"><div class="pad aside include group">
 			<h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
 			<div class="content"><div class="group">
@@ -41,6 +42,7 @@ $showSidebar = False;
 
 
 	<div id=main >
+		<button id=openbtn class="openbtn" onclick="openNav()">&#9776;</button>
 		<div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
 			echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 

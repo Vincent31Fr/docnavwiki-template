@@ -1,3 +1,4 @@
+/* DOKUWIKI:include script/navbar.js */
 /**
  *  We handle several device classes based on browser width.
  *
