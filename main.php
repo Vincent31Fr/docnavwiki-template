@@ -1,10 +1,11 @@
 <?php
 /**
- * DokuWiki Default Template 2012
+ * docnavwiki base on dokuwiki Default Template 2012
  *
  * @link     http://dokuwiki.org/template
  * @author   Anika Henke <anika@selfthinker.org>
  * @author   Clarence Lee <clarencedglee@gmail.com>
+ * @author   Vincent Voisin
  * @license  GPL 2 (http://www.gnu.org/licenses/gpl.html)
  */
 
@@ -29,6 +30,18 @@ $showSidebar = False;
 	<div id=navbar > 
 		<!-- ********** ASIDE ********** -->
 		<button id=closebtn class="closebtn" onclick="closeNav()">&#9776;</button>
+		<script>
+		try {
+			var sidebarState = localStorage.getItem('sidebar');
+			if (sidebarState == 'open') {
+				document.getElementById("navbar").style.visibility = "visible";
+			} else {
+				document.getElementById("navbar").style.visibility = "hidden";
+			}
+		} catch (e){
+			console.error("something went wrong when trying to access local storage : {",e,"}");
+		}
+		</script>
 		<div id="dokuwiki__aside"><div class="pad aside include group">
 			<h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
 			<div class="content"><div class="group">
@@ -43,6 +56,20 @@ $showSidebar = False;
 
 	<div id=main >
 		<button id=openbtn class="openbtn" onclick="openNav()">&#9776;</button>
+		<script>
+		try {
+			var sidebarState = localStorage.getItem('sidebar');
+			if (sidebarState == 'open') {
+				document.getElementById("main").style.left = "18em";
+				document.getElementById("openbtn").style.visibility = "hidden";
+			} else {
+				document.getElementById("main").style.left = "0";
+				document.getElementById("openbtn").style.visibility = "visible";
+			}
+		} catch (e){
+			console.error("something went wrong when trying to access local storage : {",e,"}");
+		}
+		</script>
 		<div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
 			echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
 
