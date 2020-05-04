@@ -1,5 +1,6 @@
 base     docnavwiki
-author   Vincent voisin
-date     2020-05-01
+author   Vincent voisin   
+date     2020-05-04
 name     doc nav Template
-desc     DokuWiki's doc navigation      
+desc     DokuWiki's doc navigation base on default dokuwiki template
+url      

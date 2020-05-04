@@ -54,7 +54,7 @@ function closeNav() {
 	}
 	document.getElementById("navbar").style.visibility = "hidden";
 	document.getElementById("main").style.left = "0";
-	document.getElementById("openbtn").style.visibility = "unset";
+	document.getElementById("openbtn").style.visibility = "visible";
 	
 }
 

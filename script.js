@@ -42,6 +42,10 @@ function tpl_dokuwiki_mobile(){
         if($handle.length) {
             $handle[0].setState(1);
             $handle.hide();
+			jQuery('#dokuwiki__aside').appendTo('#navbar');
+			document.getElementById("navbar").style.visibility = "visible";
+			document.getElementById("openbtn").style.visibility = "hidden";
+			document.getElementById("main").style.left = "18em";
         }
         if($toc.length) {
             $toc[0].setState(1);
@@ -52,6 +56,10 @@ function tpl_dokuwiki_mobile(){
         if($handle.length) {
             $handle.show();
             $handle[0].setState(-1);
+			jQuery('#dokuwiki__aside').insertBefore('#dokuwiki__content');
+			document.getElementById("navbar").style.visibility = "hidden";
+			document.getElementById("main").style.left = "0";
+			document.getElementById("openbtn").style.visibility = "hidden";
         }
         if($toc.length) {
             $toc[0].setState(-1);
@@ -63,7 +71,6 @@ jQuery(function(){
     var resizeTimer;
     dw_page.makeToggle('#dokuwiki__aside h3.toggle','#dokuwiki__aside div.content');
 
-    tpl_dokuwiki_mobile();
     jQuery(window).on('resize',
         function(){
             if (resizeTimer) clearTimeout(resizeTimer);
