@@ -68,6 +68,7 @@ function tpl_dokuwiki_mobile(){
 }
 
 jQuery(function(){
+	SetScrollPosition();
     var resizeTimer;
     dw_page.makeToggle('#dokuwiki__aside h3.toggle','#dokuwiki__aside div.content');
 

@@ -27,22 +27,22 @@ $showSidebar = False;
 </head>
 
 <body>
-	<div id=navbar > 
+	<div id=navbar onclick="storeScrollPosition()" > 
 		<!-- ********** ASIDE ********** -->
 		<button id=closebtn class="closebtn" onclick="closeNav()">&#9776;</button>
 		<script>
 		try {
 			var sidebarState = localStorage.getItem('sidebar');
-			if (sidebarState == 'open') {
-				document.getElementById("navbar").style.visibility = "visible";
+			if (sidebarState == 'closed'){
+				navbar.style.visibility = "hidden";
 			} else {
-				document.getElementById("navbar").style.visibility = "hidden";
+				navbar.style.visibility = "visible";
 			}
 		} catch (e){
-			console.error("something went wrong when trying to access local storage : {",e,"}");
+			console.error("navbar : {",e,"}");
 		}
 		</script>
-		<div id="dokuwiki__aside"><div class="pad aside include group">
+		<div id="dokuwiki__aside" ><div class="pad aside include group">
 			<h3 class="toggle"><?php echo $lang['sidebar'] ?></h3>
 			<div class="content"><div class="group">
 				<?php tpl_flush() ?>
@@ -59,15 +59,15 @@ $showSidebar = False;
 		<script>
 		try {
 			var sidebarState = localStorage.getItem('sidebar');
-			if (sidebarState == 'open') {
-				document.getElementById("main").style.left = "18em";
-				document.getElementById("openbtn").style.visibility = "hidden";
+			if (sidebarState == 'closed'){
+				main.style.left = "0";
+				openbtn.style.visibility = "visible";
 			} else {
-				document.getElementById("main").style.left = "0";
-				document.getElementById("openbtn").style.visibility = "visible";
+				main.style.left = "18em";
+				openbtn.style.visibility = "hidden";
 			}
 		} catch (e){
-			console.error("something went wrong when trying to access local storage : {",e,"}");
+			console.error("openbtn : {",e,"}");
 		}
 		</script>
 		<div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php

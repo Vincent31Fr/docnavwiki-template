@@ -58,3 +58,11 @@ function closeNav() {
 	
 }
 
+function storeScrollPosition() {
+	localStorage.setItem('sidebarScrollPosition',navbar.scrollTop);	
+}
+
+function SetScrollPosition() {
+	navbar.scrollTo(0,localStorage.getItem('sidebarScrollPosition'));
+}
+
