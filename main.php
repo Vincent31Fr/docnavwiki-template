@@ -27,7 +27,8 @@ $showSidebar = False;
 </head>
 
 <body>
-	<div id=navbar onclick="storeScrollPosition()" > 
+	<div id=navbar onclick="storeScrollPosition()" class="site <?php echo tpl_classes(); ?> <?php
+        echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>" > 
 		<!-- ********** ASIDE ********** -->
 		<button id=closebtn class="closebtn" onclick="closeNav()">&#9776;</button>
 		<script>
