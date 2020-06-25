@@ -27,8 +27,9 @@ $showSidebar = False;
 </head>
 
 <body>
-	<div id=navbar onclick="storeScrollPosition()" class="site <?php echo tpl_classes(); ?> <?php
-        echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>" > 
+<div id="dokuwiki__site">
+	<div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
+	<div id=navbar onclick="storeScrollPosition()" > 
 		<!-- ********** ASIDE ********** -->
 		<button id=closebtn class="closebtn" onclick="closeNav()">&#9776;</button>
 		<script>
@@ -71,8 +72,7 @@ $showSidebar = False;
 			console.error("openbtn : {",e,"}");
 		}
 		</script>
-		<div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?> <?php
-			echo ($showSidebar) ? 'showSidebar' : ''; ?> <?php echo ($hasSidebar) ? 'hasSidebar' : ''; ?>">
+		<div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?>">
 
 			<?php include('tpl_header.php') ?>
 
@@ -116,5 +116,7 @@ $showSidebar = False;
 		<div class="no"><?php tpl_indexerWebBug() /* provide DokuWiki housekeeping, required in all templates */ ?></div>
 		<div id="screen__mode" class="no"></div><?php /* helper to detect CSS media query in script.js */ ?>
 	</div>
+	</div>
+</div><!-- /site -->
 </body>
 </html>
