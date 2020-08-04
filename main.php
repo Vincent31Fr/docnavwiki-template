@@ -72,7 +72,7 @@ $showSidebar = False;
 			console.error("openbtn : {",e,"}");
 		}
 		</script>
-		<div id="dokuwiki__site"><div id="dokuwiki__top" class="site <?php echo tpl_classes(); ?>">
+		<div id="dokuwiki__site"><div id="dokuwiki__top" class="site">
 
 			<?php include('tpl_header.php') ?>
 
